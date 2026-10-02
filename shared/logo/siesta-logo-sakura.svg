@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="40" fill="#0B111E"/>
+
+  <!-- Sakura — 5 kelopak, disusun radial simetris di sekitar pusat.
+       Setiap kelopak: bentuk oval dengan lekukan kecil di ujung luar
+       (ciri khas kelopak sakura), digambar sebagai outline. -->
+  <g stroke="#81D4FA" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- Kelopak 1 (atas) -->
+    <path d="M 100 100
+             C 94 82, 92 62, 100 46
+             C 108 62, 106 82, 100 100 Z" />
+
+    <!-- Kelopak 2 (kanan atas) -->
+    <path d="M 100 100
+             C 116 90, 134 84, 150 90
+             C 140 104, 122 108, 100 100 Z" />
+
+    <!-- Kelopak 3 (kanan bawah) -->
+    <path d="M 100 100
+             C 112 116, 118 136, 112 154
+             C 98 144, 92 122, 100 100 Z" />
+
+    <!-- Kelopak 4 (kiri bawah) -->
+    <path d="M 100 100
+             C 84 110, 66 116, 50 110
+             C 60 96, 78 92, 100 100 Z" />
+
+    <!-- Kelopak 5 (kiri atas) -->
+    <path d="M 100 100
+             C 88 88, 70 82, 54 88
+             C 64 102, 82 108, 100 100 Z" />
+  </g>
+
+  <!-- Pusat bunga -->
+  <circle cx="100" cy="100" r="5" fill="#81D4FA" />
+</svg>

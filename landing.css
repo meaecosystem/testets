@@ -1,0 +1,203 @@
+/* ============================================================
+   SIESTA — LANDING STYLES
+   Token warna STRUKTURAL (bg, surface, border, text) berasal dari
+   shared/token/token-color.css milik induk (di-link di index.html,
+   bukan disalin) — jangan hardcode hex di sini kecuali untuk
+   --siesta-accent, yaitu warna identitas produk Siesta sendiri
+   (biru sakura dari logo), bukan token ekosistem.
+
+   Font family mengikuti landing.css MEA Ecosystem supaya konsisten
+   lintas produk.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:        var(--mea-bg, #0A0A0A);
+  --surface:   var(--mea-surface, #161616);
+  --border:    var(--mea-border, #2A2A2A);
+  --border-2:  var(--mea-border-strong, #3A3A3A);
+  --text:      var(--mea-text-primary, #FAFAFA);
+  --text-2:    var(--mea-text-secondary, #A1A1A1);
+  --text-3:    var(--mea-text-muted, #6B6B6B);
+
+  /* Identitas Siesta sendiri — diambil dari logo sakura */
+  --siesta-accent:      #81D4FA;
+  --siesta-accent-dim:  rgba(129, 212, 250, 0.12);
+
+  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Cascadia Code', monospace;
+
+  --container: 720px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+
+html{ scroll-behavior:smooth; }
+
+:focus-visible{ outline: 2px solid var(--siesta-accent); outline-offset: 2px; }
+:focus:not(:focus-visible){ outline: none; }
+
+body{
+  background:
+    radial-gradient(ellipse 800px 500px at 50% -5%, var(--siesta-accent-dim), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{ color: inherit; text-decoration: none; }
+
+/* ── Header ──────────────────────────────────────────────── */
+.site-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px clamp(20px, 5vw, 48px);
+}
+.brand-lockup{ display:flex; align-items:center; gap:10px; }
+.brand-lockup .mark{ width:26px; height:26px; filter: drop-shadow(0 0 6px var(--siesta-accent-dim)); }
+.brand-name{ font-family: var(--font-display); font-size: 20px; letter-spacing: 0.04em; }
+.back-link{ font-size: 14px; color: var(--text-2); }
+.back-link:hover{ color: var(--text); }
+
+/* ── Hero ────────────────────────────────────────────────── */
+.hero{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(32px, 8vh, 72px) 20px 24px;
+  max-width: var(--container);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-mark{
+  width: 56px; height: 56px;
+  margin-bottom: 20px;
+  animation: breathe 5s ease-in-out infinite;
+}
+.hero-mark img{ width:100%; height:100%; filter: drop-shadow(0 0 14px var(--siesta-accent-dim)); }
+
+@keyframes breathe{
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50%      { transform: scale(1.06); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-mark{ animation: none; }
+}
+
+.hero h1{
+  font-family: var(--font-display);
+  font-size: clamp(36px, 8vw, 56px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.hero-sub{
+  color: var(--text-2);
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+/* ── Chat box (ala DeepSeek) ─────────────────────────────── */
+.chat-box{
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px 12px 12px 20px;
+  transition: border-color .15s ease;
+}
+.chat-box:focus-within{
+  border-color: var(--siesta-accent);
+}
+
+.chat-box textarea{
+  flex: 1;
+  resize: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  max-height: 160px;
+  padding: 6px 0;
+}
+.chat-box textarea::placeholder{ color: var(--text-3); }
+.chat-box textarea:focus{ outline: none; }
+
+.chat-box button{
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: var(--siesta-accent);
+  color: #0A0A0A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity .15s ease;
+}
+.chat-box button:hover{ opacity: 0.85; }
+.chat-box button svg{ width: 18px; height: 18px; }
+
+.chat-helper{
+  margin-top: 14px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--text-3);
+}
+.chat-helper .dot{ margin: 0 6px; }
+.chat-helper a{ color: var(--siesta-accent); }
+.chat-helper a:hover{ text-decoration: underline; }
+
+/* ── Points — baris teks tipis, bukan card ──────────────────── */
+.points{
+  max-width: var(--container);
+  margin: 0 auto;
+  width: 100%;
+  padding: 8px 20px 48px;
+}
+.point{
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 14px;
+  text-align: center;
+}
+.point:last-child{ border-bottom: 1px solid var(--border); }
+
+/* ── Footer ──────────────────────────────────────────────── */
+.site-footer{
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+.site-footer a{ color: var(--text-2); }
+.site-footer a:hover{ color: var(--text); }
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media (max-width: 480px){
+  .hero{ padding-top: 28px; }
+  .chat-box{ padding: 10px 10px 10px 16px; }
+}

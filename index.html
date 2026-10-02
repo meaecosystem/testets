@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Siesta — Asisten AI MEA Ecosystem</title>
+<meta name="description" content="Siesta, asisten AI percakapan dari MEA Ecosystem. Coba langsung tanpa akun, atau masuk untuk limit lebih besar." />
+<meta name="theme-color" content="#0A0A0A" />
+
+<link rel="icon" type="image/svg+xml" href="./shared/logo/siesta-logo-sakura.svg" />
+
+<!-- Token warna di-link LANGSUNG dari induk (bukan disalin) — satu
+     sumber kebenaran untuk seluruh produk MEA Ecosystem. Kalau Kudo
+     update token ini, Siesta otomatis ikut tanpa perlu disentuh. -->
+<link rel="stylesheet" href="https://meaecosystem.com/shared/token/token-color.css" />
+<link rel="stylesheet" href="./landing.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER — minimal, cuma mark + balik ke induk
+     ============================================================ -->
+<header class="site-header">
+  <a href="https://meaecosystem.com" class="brand-lockup">
+    <img src="./shared/logo/siesta-logo-avatar.svg" alt="" class="mark" />
+    <span class="brand-name">Siesta</span>
+  </a>
+  <a href="https://meaecosystem.com" class="back-link">MEA Ecosystem</a>
+</header>
+
+<!-- ============================================================
+     HERO — headline singkat + kolom chat langsung (gaya DeepSeek)
+     ============================================================ -->
+<main>
+  <section class="hero">
+    <div class="hero-mark" aria-hidden="true">
+      <img src="./shared/logo/siesta-logo-avatar.svg" alt="" />
+    </div>
+
+    <h1>Siesta</h1>
+    <p class="hero-sub">Tanya apa aja, Siesta coba jawab santai dan jelas.</p>
+
+    <form class="chat-box" id="chatBox">
+      <textarea
+        id="chatInput"
+        rows="1"
+        placeholder="Tanya sesuatu ke Siesta..."
+        autocomplete="off"
+      ></textarea>
+      <button type="submit" id="chatSend" aria-label="Kirim">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </button>
+    </form>
+
+    <p class="chat-helper">
+      <span id="limitText">5 pesan gratis tersisa hari ini</span>
+      <span class="dot">·</span>
+      <a href="https://meaecosystem.com/auth/login/?next=https://siesta.meaecosystem.com/room/chat/">Masuk untuk limit lebih</a>
+    </p>
+  </section>
+
+  <!-- ============================================================
+       CAPABILITIES — baris teks tipis, bukan card
+       ============================================================ -->
+  <section class="points">
+    <div class="point">
+      <span>Jawab dalam Bahasa Indonesia apa adanya</span>
+    </div>
+    <div class="point">
+      <span>Bisa langsung dicoba, nggak perlu daftar</span>
+    </div>
+    <div class="point">
+      <span>Masuk pakai akun MEA untuk limit lebih &amp; riwayat chat tersimpan</span>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>Bagian dari <a href="https://meaecosystem.com">MEA Ecosystem</a></span>
+</footer>
+
+<script src="./landing.js"></script>
+</body>
+</html>
